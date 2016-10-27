@@ -1,7 +1,11 @@
 .text-field
-  = form.label :email
-  = form.text_field :email, type: 'email'
+  = form.input :full_name, as: :text
+
+.text-field
+  = form.input :username, as: :text
+
+.text-field
+  = form.input :email, as: :email
 
 .password-field
-  = form.label :password
-  = form.password_field :password
+  = form.input :password, as: :password

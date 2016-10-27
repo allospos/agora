@@ -13,10 +13,13 @@ gem 'haml-rails', '~> 0.9'
 
 gem 'foundation-rails'
 gem 'clearance'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
