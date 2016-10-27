@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'haml-rails', '~> 0.9'
 
+gem 'foundation-rails'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
