@@ -7,6 +7,9 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    %p#notice= notice
+
+    = link_to 'Add new product', new_product_path
     - if signed_in?
       Signed in as: #{current_user.email}
       \#{button_to 'Sign out', sign_out_path, method: :delete}
