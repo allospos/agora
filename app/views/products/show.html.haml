@@ -4,15 +4,30 @@
   =@product.title
 
 .row
+  .large-8.columns
+    %img.thumbnail{ src: "http://placekitten.com/g/500/600"}
   .large-4.columns
-    %img.thumbnail{ src: "http://placekitten.com/g/500/400"}
-  .large-5.columns
-    %p= @product.description
-  .large-3.columns
     .callout
-      %p.text-center.stat
+      %p= @product.description
+      %br
+      %p.stat
         &euro;#{@product.price}
+
+      %h5 Overview
+      %ul
+        %li Location: Nicosia
+        %li #{t("condition")}: #{@product.condition}
+        - if @product.product_type?
+          %li #{@product.product_type} item
+        %Li Collection only
+        %Li Can be posted for an additional fee
+        %li Favorited by: #{@product.user_favourites.count}
+        %li Feedback:
+      =link_to "Favourite", product_favourites_path(@product), method: :post, class: "button alert expanded"
       =link_to "Add to cart", "#", class: "button expanded"
+
+      .text-right
+        %small added at #{l(@product.created_at)}
     .callout
       %h5 Seller information
       = @product.user.username
@@ -23,4 +38,3 @@
         %li Email address
         %li Phone number
 
-    %small added at #{l(@product.created_at)}
