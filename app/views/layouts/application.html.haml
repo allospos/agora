@@ -8,7 +8,11 @@
     = javascript_include_tag 'application'
   %body
     = render partial: 'layouts/top_bar'
-    %p#notice= notice
+    - if notice
+      .alert.callout{ "data-closable" => "slight-out-right"}
+        = notice
+        %button.close-button{ "aria-label" => "Dismiss alert", type: "button", "data-close" => ""}
+          %span{"aria-hidden" => "true"} &times;
 
     .row
       .large-12.columns
