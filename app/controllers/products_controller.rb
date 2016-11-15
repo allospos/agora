@@ -1,8 +1,13 @@
 class ProductsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: [:index]
 
   def new
     @product = Product.new
+  end
+
+  def index
+    @products = Product.all
+    puts @products.inspect
   end
 
   def create

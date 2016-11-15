@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   post "/users", to: "users#create"
 
-  resources :products, only: [:create, :new, :show]
+  resources :products, only: [:index, :create, :new, :show]
 
 end
