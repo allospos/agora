@@ -31,8 +31,8 @@ RSpec.feature "Listing a new product" do
       expect(page).to have_content("Your listing for Sofa is now public")
 
       expect(page).to have_content("Sofa")
-      expect(page).to have_content("Description: three-seater yellow couch")
-      expect(page).to have_content("Price: 80")
+      expect(page).to have_content("three-seater yellow couch")
+      expect(page).to have_content("€80")
     end
   end
 end

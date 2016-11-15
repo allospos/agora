@@ -1,9 +1,10 @@
 #products
   %h2 Products
   - @products.each do |product|
-    .product
-      %h3
+    .row.product
+      .large-1.columns
+        %img.thumbnail{ src: "http://placekitten.com/g/75/75"}
+      .large-9.columns
         =link_to product.title, product
-      %p= product.description
-      %p= product.price
-      %span= product.created_at
+      .large-2.columns
+        &euro; #{product.price}
