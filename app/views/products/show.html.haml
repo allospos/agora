@@ -21,8 +21,9 @@
           %li #{@product.product_type} item
         %Li Collection only
         %Li Can be posted for an additional fee
-        %li Favorited by:
+        %li Favorited by: #{@product.user_favourites.count}
         %li Feedback:
+      =link_to "Favourite", product_favourites_path(@product), method: :post, class: "button alert expanded"
       =link_to "Add to cart", "#", class: "button expanded"
 
       .text-right
