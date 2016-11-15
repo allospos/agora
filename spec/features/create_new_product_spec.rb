@@ -26,7 +26,7 @@ RSpec.feature "Listing a new product" do
       fill_in "Description", with: "three-seater yellow couch"
       fill_in "Price", with: "80"
 
-      click_on "Create Product"
+      click_on "Create"
 
       expect(page).to have_content("Your listing for Sofa is now public")
 

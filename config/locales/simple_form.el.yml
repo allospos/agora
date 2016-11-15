@@ -1,4 +1,4 @@
-en:
+el:
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -13,9 +13,11 @@ en:
     # Examples
     labels:
       product:
-        title: "Title"
-        description: "Description"
-        price: "Price"
+        condition: "Κατάσταση"
+        product_type: Είδος
+        title: "Τίτλος"
+        description: "Περιγραφή"
+        price: "Τιμή"
     #   defaults:
     #     password: 'Password'
     #   user:

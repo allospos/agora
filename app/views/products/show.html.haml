@@ -4,16 +4,15 @@
   =@product.title
 
 .row
-  .large-3.columns
-    %img.thumbnail{ src: "http://placekitten.com/g/250/200"}
-  .large-6.columns
+  .large-4.columns
+    %img.thumbnail{ src: "http://placekitten.com/g/500/400"}
+  .large-5.columns
     %p= @product.description
-    %em added at #{l(@product.created_at)}
-    %p.text-center.stat
-      &euro;#{@product.price}
-
-    =link_to "Add to cart", "#", class: "button expanded"
   .large-3.columns
+    .callout
+      %p.text-center.stat
+        &euro;#{@product.price}
+      =link_to "Add to cart", "#", class: "button expanded"
     .callout
       %h5 Seller information
       = @product.user.username
@@ -23,3 +22,5 @@
       %ul.no-bullet
         %li Email address
         %li Phone number
+
+    %small added at #{l(@product.created_at)}

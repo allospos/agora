@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :require_login, except: [:index]
+  before_action :require_login, only: [:new, :create]
 
   def new
     @product = Product.new
