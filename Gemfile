@@ -14,6 +14,8 @@ gem 'haml-rails', '~> 0.9'
 gem 'foundation-rails'
 gem 'clearance'
 gem 'simple_form'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
