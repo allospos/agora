@@ -1,5 +1,9 @@
-- @products.each do |product|
-  = product.title
-  = product.description
-  = product.price
-
+#products
+  %h2 Products
+  - @products.each do |product|
+    .product
+      %h3
+        =link_to product.title, product
+      %p= product.description
+      %p= product.price
+      %span= product.created_at

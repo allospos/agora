@@ -1,4 +1,6 @@
-%h1
+%h2
+  =link_to "Products", products_path
+  \/
   =@product.title
 
 %p
@@ -8,3 +10,5 @@
 %p
   Price:
   =@product.price
+
+%span= @product.created_at
