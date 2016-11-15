@@ -1,7 +1,7 @@
-%h1 Product Information
+%h1= t('product_information')
 
 = simple_form_for @product do |f|
   = f.input :title
   = f.input :description
   = f.input :price
-  = f.submit "Create Product", class: "button"
+  = f.submit t('create'), class: "button"

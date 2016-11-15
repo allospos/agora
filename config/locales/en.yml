@@ -1,4 +1,10 @@
 en:
+  product_information: Product Information
+  list_product: List a new product
+  create: Create
+
+  sign_in: Sign in
+
   date:
     formats:
       default: "%d/%m/%Y"
@@ -7,3 +13,5 @@ en:
   time:
     formats:
       default: '%m/%d/%Y %H:%M'
+
+

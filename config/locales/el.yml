@@ -1,0 +1,15 @@
+el:
+  product_information: Πληροφορίες προϊόντος
+  list_product: Καταχώρηση
+  create: Καταχώρηση
+
+  sign_in: Σύνδεση
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+  time:
+    formats:
+      default: '%m/%d/%Y %H:%M'
