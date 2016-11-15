@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    puts @products.inspect
   end
 
   def create
