@@ -13,6 +13,8 @@ el:
     # Examples
     labels:
       product:
+        condition: "Κατάσταση"
+        product_type: Είδος
         title: "Τίτλος"
         description: "Περιγραφή"
         price: "Τιμή"

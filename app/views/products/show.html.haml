@@ -4,11 +4,10 @@
   =@product.title
 
 .row
-  .large-3.columns
-    %img.thumbnail{ src: "http://placekitten.com/g/250/200"}
-  .large-6.columns
+  .large-4.columns
+    %img.thumbnail{ src: "http://placekitten.com/g/500/400"}
+  .large-5.columns
     %p= @product.description
-
   .large-3.columns
     .callout
       %p.text-center.stat
@@ -24,4 +23,4 @@
         %li Email address
         %li Phone number
 
-    %em added at #{l(@product.created_at)}
+    %small added at #{l(@product.created_at)}

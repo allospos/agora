@@ -1,7 +1,24 @@
-%h1= t('product_information')
+.row
+  .large-offset-2.large-8.columns
+    .callout.large
+      %h1= t('product_information')
 
-= simple_form_for @product do |f|
-  = f.input :title
-  = f.input :description
-  = f.input :price
-  = f.submit t('create'), class: "button"
+      = simple_form_for @product do |f|
+        .row
+          .large-3.columns
+            = f.input :condition, collection: [ "New", "Used" ], selected: "New"
+        .row
+          .large-12.columns
+            = f.input :title
+        .row
+          .large-12.columns
+            = f.input :description
+        .row
+          .large-3.columns
+            = f.input :product_type, collection: [ "Handmade", "Vintage" ]
+        .row
+          .large-3.columns
+            = f.input :price
+        .row
+          .large-12.columns.text-right
+            = f.submit t('create'), class: "button"
