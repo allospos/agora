@@ -7,7 +7,6 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     %link{href: "https://fonts.googleapis.com/css?family=Comfortaa", rel:"stylesheet" }
-
   %body
     = render partial: 'layouts/top_bar'
     - if notice
@@ -16,7 +15,4 @@
         %button.close-button{ "aria-label" => "Dismiss alert", type: "button", "data-close" => ""}
           %span{"aria-hidden" => "true"} &times;
 
-    #container
-      .row
-        .large-12.columns
-          = yield
+    = yield

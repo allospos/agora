@@ -5,6 +5,11 @@ el:
 
   sign_in: Σύνδεση
 
+  tagline: Η διαδικτυακή αγορά της Κύπρου
+  marketing_text: για ασφαλείς και έμπιστες αγοραπωλησίες.
+
+  latest_listings: Καινούριες καταχωρήσεις
+  your_favourites: Τα αγαπημένα σας
   date:
     formats:
       default: "%d/%m/%Y"

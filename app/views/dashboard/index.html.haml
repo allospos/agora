@@ -1,0 +1,45 @@
+#banner
+  .row
+    .large-12.columns
+      #container
+        .large-8.columns
+          %h1=t('tagline')
+      .row
+        .large-10.columns
+          %p.lead.marketing.text-right
+            = t('marketing_text')
+
+
+#container
+  - if @latest_products.any?
+    .row
+      .large-12.columns
+        .text-center
+          %h3=t('latest_listings')
+          %br
+    .row
+      - @latest_products.each do |product|
+        .large-3.columns
+          .callout
+            .text-center
+              - if product.images.any?
+                = image_tag product.images.first.thumb.url, class: "thumbnail"
+              - else
+                =image_tag "http://dummyimage.com/200x150&text=No image", class: "thumbnail center"
+            =link_to product.shortened_title, product
+  -if current_user
+    .row
+      .large-12.columns
+        .text-center
+          %h3=t('your_favourites')
+          %br
+      - if current_user.favourite_products.any?
+        - current_user.favourite_products.each do |product|
+          .large-3.columns
+            .callout
+              .text-center
+                - if product.images.any?
+                  = image_tag product.images.first.thumb.url, class: "thumbnail"
+                - else
+                  =image_tag "http://dummyimage.com/200x150&text=No image", class: "thumbnail center"
+              =link_to product.shortened_title, product

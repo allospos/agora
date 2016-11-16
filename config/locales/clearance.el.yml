@@ -48,10 +48,10 @@ el:
   sessions:
     form:
       forgot_password: Ξεχάσατε τον κωδικό σας;
-      sign_up: Συνδεθείτε
+      sign_up: Εγγραφή
     new:
       title: Σύνδεση
   users:
     new:
       sign_in: Σύνδεση
-      title: Sign up
+      title: Δημιουργία λογαριασμού

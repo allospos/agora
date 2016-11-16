@@ -3,7 +3,10 @@
   - @products.each do |product|
     .row.product
       .large-1.columns
-        %img.thumbnail{ src: "http://placekitten.com/g/75/75"}
+        - if product.images.any?
+          =image_tag product.images.first.thumb.url, class: "thumbnail"
+        - else
+          =image_tag "http://dummyimage.com/50x50&text=No image", class: "thumbnail"
       .large-9.columns
         =link_to product.title, product
       .large-2.columns

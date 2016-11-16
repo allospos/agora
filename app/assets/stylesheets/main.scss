@@ -1,3 +1,33 @@
+@import 'settings';
+
 #container {
   margin-top: 2em;
+}
+
+#banner {
+
+  .lead.marketing {
+    font-size: 2rem;
+  }
+  #container {
+    margin-top: 5em;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  background-image: asset-url('banner.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
+  height: 500px;
+  background-position: 200px -250px;
+  color: white;
+}
+
+#information {
+  margin-top: 2em;
+}
+
+.callout.secondary {
+  border: none;
 }

@@ -3,16 +3,29 @@
 %h4
   =@product.title
 
+%br
 .row
   .large-8.columns
     .text-center
-      =image_tag @product.images.last.url, class: "thumbnail"
-      %br
-      -@product.images.each do |image|
-        =image_tag image.thumb.url
+      - if @product.images.any?
+        =image_tag @product.images.first.url, class: "thumbnail"
+        %br
+        -@product.images.each do |image|
+          =image_tag image.thumb.url
+      - else
+        =image_tag "http://dummyimage.com/500x400&text=No image", class: "thumbnail"
+    #information
+      .callout.large.secondary
+        #description
+          %h4 Item details
+          = @product.description
   .large-4.columns
     .callout
-      %p= @product.description
+      %p
+        #{@product.description[0...100]}
+        - if @product.description.length > 100
+          = link_to "...", "#description"
+
       %br
       %p.stat
         &euro;#{@product.price}
@@ -27,7 +40,10 @@
         %Li Can be posted for an additional fee
         %li Favorited by: #{@product.user_favourites.count}
         %li Feedback:
-      =link_to "Favourite", product_favourites_path(@product), method: :post, class: "button alert expanded"
+      - if current_user and current_user.favourite_products.include?(@product)
+        =link_to "Favourite", product_favourites_path(@product), method: :post, class: "button alert expanded disabled"
+      - else
+        =link_to "Favourite", product_favourites_path(@product), method: :post, class: "button alert expanded"
       =link_to "Add to cart", "#", class: "button expanded"
 
       .text-right
