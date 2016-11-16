@@ -1,10 +1,23 @@
 el:
-  product_information: Πληροφορίες προϊόντος
+  product_information: Καταχώρηση
   list_product: Καταχώρηση
   create: Καταχώρηση
 
   sign_in: Σύνδεση
 
+  handmade: Χειροποίητο
+  condition: Κατάσταση
+  new: Καινούριο
+  location: Τοποθεσία
+
+  delivery_methods: Τρόποι παράδοσης
+  delivery: Παράδοση
+  delivery_information: Πληροφορίες Παράδοσης
+  post: Ταχυδρομείο
+  courier: Κούριερ
+  collection: Παραλαβή
+
+  description: Περιγραφή 
   tagline: Η διαδικτυακή αγορά της Κύπρου
   marketing_text: για ασφαλείς και έμπιστες αγοραπωλησίες.
 

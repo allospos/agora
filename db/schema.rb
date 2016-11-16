@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115212300) do
+ActiveRecord::Schema.define(version: 20161116190255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delivery_methods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_delivery_methods", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "delivery_method_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["delivery_method_id"], name: "index_product_delivery_methods_on_delivery_method_id", using: :btree
+    t.index ["product_id"], name: "index_product_delivery_methods_on_product_id", using: :btree
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
@@ -50,6 +65,8 @@ ActiveRecord::Schema.define(version: 20161115212300) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
+  add_foreign_key "product_delivery_methods", "delivery_methods"
+  add_foreign_key "product_delivery_methods", "products"
   add_foreign_key "products", "users"
   add_foreign_key "user_favourites", "products"
   add_foreign_key "user_favourites", "users"

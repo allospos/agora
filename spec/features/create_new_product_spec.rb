@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Listing a new product" do
+  let!(:delivery_method) { Fabricate(:delivery_method) }
+
   before do
     visit root_path
   end
@@ -15,16 +17,18 @@ RSpec.feature "Listing a new product" do
 
   feature "a signed-in customer" do
 
-    let!(:user) { User.create(full_name: 'Jane Doe', username: 'janed', email: 'janed@example.com', password: 'password') }
+    let!(:user) { Fabricate(:user) }
 
     scenario "can list a product" do
-      sign_in
+      sign_in(user)
 
       visit new_product_path
 
       fill_in "Title", with: "Sofa"
       fill_in "Description", with: "three-seater yellow couch"
       fill_in "Price", with: "80"
+      select "New", from: "Condition"
+      check delivery_method.name
 
       click_on "Create"
 
@@ -37,9 +41,9 @@ RSpec.feature "Listing a new product" do
   end
 end
 
-def sign_in
+def sign_in(user)
   click_on 'Sign in'
-  fill_in 'Email', with: 'janed@example.com'
-  fill_in 'Password', with: 'password'
+  fill_in 'Email', with: user.email
+  fill_in 'Password', with: user.password
   click_button 'Sign in'
 end

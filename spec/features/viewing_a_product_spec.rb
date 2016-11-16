@@ -1,11 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Viewing a product", wip: true do
-  let(:user) { User.create(full_name: 'Jane Doe', username: 'janed', email: 'janed@example.com', password: 'password') }
-  let(:product) { Product.create(title: "Some title",
-                                 description: "The description",
-                                 price: "23.30",
-                                 user: user)}
+  let(:product) { Fabricate(:product) }
+
   before do
     visit product_path(product)
   end

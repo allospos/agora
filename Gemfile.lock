@@ -74,6 +74,7 @@ GEM
       activemodel
     erubis (2.7.0)
     execjs (2.7.0)
+    fabrication (2.16.0)
     ffi (1.9.14)
     foundation-rails (6.2.4.0)
       railties (>= 3.1.0)
@@ -221,6 +222,7 @@ DEPENDENCIES
   capybara
   carrierwave!
   clearance
+  fabrication
   foundation-rails
   haml-rails (~> 0.9)
   jbuilder (~> 2.5)
