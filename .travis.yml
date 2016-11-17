@@ -4,6 +4,8 @@ script:
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
   - bundle exec rspec
+addons:
+  postgresql: "9.4"
 notifications:
   email:
     - webmaster@allospos.io
