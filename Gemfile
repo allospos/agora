@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'redcarpet'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
