@@ -16,6 +16,7 @@ gem 'clearance'
 gem 'simple_form'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug', platform: :mri
