@@ -22,7 +22,7 @@
 
       .tabs-content{"data-tabs-content" => "information" }
         .tabs-panel.is-active#description
-          %p= @product.description
+          %p= markdown_render(@product.description)
   .large-4.columns
     .callout
       %p
