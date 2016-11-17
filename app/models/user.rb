@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :favourite_products, through: :user_favourites, source: :product
 
   validates :full_name, :username, presence: true
+  validates :username, uniqueness: true
 end
