@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @products = Product.order('created_at desc').all
   end
 
   def create
@@ -24,6 +24,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, :price, :condition, :product_type)
+    params.require(:product).permit(:title, :description, :price, :condition, :product_type, { images: []}, delivery_method_ids: [])
   end
 end

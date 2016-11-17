@@ -1,12 +1,6 @@
 #products
   %h2 Products
-  - @products.each do |product|
-    .row.product
-      .large-1.columns
-        %img.thumbnail{ src: "http://placekitten.com/g/75/75"}
-      .large-9.columns
-        =link_to product.title, product
-      .large-2.columns
-        &euro; #{product.price}
-
-      %hr
+  .row.large-up-4
+    - @products.each do |product|
+      .column.product
+        = render partial: 'products/show', locals: { product: product }

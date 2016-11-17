@@ -20,5 +20,16 @@
           .large-3.columns
             = f.input :price
         .row
+          .large-3.columns
+            = f.file_field :images, multiple: true
+
+        .row
+          .large-12.columns
+            %h2 Delivery
+        .row
+          .large-12.columns
+            = f.association :delivery_methods, multiple: true, as: :check_boxes
+
+        .row
           .large-12.columns.text-right
             = f.submit t('create'), class: "button"
