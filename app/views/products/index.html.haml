@@ -1,15 +1,6 @@
 #products
   %h2 Products
-  - @products.each do |product|
-    .row.product
-      .large-1.columns
-        - if product.images.any?
-          =image_tag product.images.first.thumb.url, class: "thumbnail"
-        - else
-          =image_tag "http://dummyimage.com/50x50&text=No image", class: "thumbnail"
-      .large-9.columns
-        =link_to product.title, product
-      .large-2.columns
-        &euro; #{product.price}
-
-      %hr
+  .row.large-up-4
+    - @products.each do |product|
+      .column.product
+        = render partial: 'products/show', locals: { product: product }

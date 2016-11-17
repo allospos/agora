@@ -20,13 +20,7 @@
     .row
       - @latest_products.each do |product|
         .large-3.columns
-          .text-center
-            =link_to product do
-              - if product.images.any?
-                = image_tag product.images.first.small.url, class: "thumbnail"
-              - else
-                =image_tag "http://dummyimage.com/300x200&text=No image", class: "thumbnail center"
-          =link_to product.shortened_title, product
+          = render partial: 'products/show', locals: { product: product }
   %br
   -if current_user
     .row
@@ -37,10 +31,4 @@
       - if current_user.favourite_products.any?
         - current_user.favourite_products.each do |product|
           .large-3.columns
-            .text-center
-              = link_to product do
-                - if product.images.any?
-                  = image_tag product.images.first.small.url, class: "thumbnail"
-                - else
-                  =image_tag "http://dummyimage.com/300x200&text=No image", class: "thumbnail center"
-            =link_to product.shortened_title, product
+            = render partial: 'products/show', locals: { product: product }
