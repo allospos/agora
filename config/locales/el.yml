@@ -31,3 +31,11 @@ el:
   time:
     formats:
       default: '%m/%d/%Y %H:%M'
+
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            title:
+              blank: Συμπληρώστε τον τίτλο της αγγελίας σας

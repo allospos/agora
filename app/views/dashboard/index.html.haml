@@ -20,13 +20,14 @@
     .row
       - @latest_products.each do |product|
         .large-3.columns
-          .callout
-            .text-center
+          .text-center
+            =link_to product do
               - if product.images.any?
-                = image_tag product.images.first.thumb.url, class: "thumbnail"
+                = image_tag product.images.first.small.url, class: "thumbnail"
               - else
-                =image_tag "http://dummyimage.com/200x150&text=No image", class: "thumbnail center"
-            =link_to product.shortened_title, product
+                =image_tag "http://dummyimage.com/300x200&text=No image", class: "thumbnail center"
+          =link_to product.shortened_title, product
+  %br
   -if current_user
     .row
       .large-12.columns
@@ -36,10 +37,10 @@
       - if current_user.favourite_products.any?
         - current_user.favourite_products.each do |product|
           .large-3.columns
-            .callout
-              .text-center
+            .text-center
+              = link_to product do
                 - if product.images.any?
-                  = image_tag product.images.first.thumb.url, class: "thumbnail"
+                  = image_tag product.images.first.small.url, class: "thumbnail"
                 - else
-                  =image_tag "http://dummyimage.com/200x150&text=No image", class: "thumbnail center"
-              =link_to product.shortened_title, product
+                  =image_tag "http://dummyimage.com/300x200&text=No image", class: "thumbnail center"
+            =link_to product.shortened_title, product
