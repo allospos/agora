@@ -1,4 +1,7 @@
 class UsersController < Clearance::UsersController
+
+  private
+
   def user_from_params
     full_name = user_params.delete(:full_name)
     username = user_params.delete(:username)
@@ -12,4 +15,5 @@ class UsersController < Clearance::UsersController
       user.password = password
     end
   end
+
 end

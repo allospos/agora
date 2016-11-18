@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :favourites, only: [:create]
   end
 
+  get "/verify/:name/:token", to: "verifications#update", as: :verify
 end
