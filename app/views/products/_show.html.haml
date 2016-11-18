@@ -1,8 +1,10 @@
-.text-center
+.product{ "data-equalizer-watch" => "" }
   =link_to product do
     - if product.images.any?
-      = image_tag product.images.first.small.url, class: "thumbnail"
+      = image_tag product.images.first.small.url
     - else
-      =image_tag "http://dummyimage.com/300x200&text=No image", class: "thumbnail center"
-&euro;#{product.price}
-=link_to product.shortened_title, product
+      =image_tag "http://dummyimage.com/340x270&text=No image"
+  .info
+    =link_to product.shortened_title, product
+    .text-right
+      &euro;#{product.price}

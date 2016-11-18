@@ -17,9 +17,9 @@
         .text-center
           %h3=t('latest_listings')
           %br
-    .row
+    .row.large-up-5.medium-up-3.small-up-2{ "data-equalizer" => "true", "data-equalize-by-row" => "true" }
       - @latest_products.each do |product|
-        .large-3.columns
+        .column
           = render partial: 'products/show', locals: { product: product }
   %br
   -if current_user
@@ -28,7 +28,8 @@
         .text-center
           %h3=t('your_favourites')
           %br
-      - if current_user.favourite_products.any?
-        - current_user.favourite_products.each do |product|
-          .large-3.columns
-            = render partial: 'products/show', locals: { product: product }
+        - if current_user.favourite_products.any?
+          .row.large-up-5.medium-up-3.small-up-2{ "data-equalizer" => "true", "data-equalize-by-row" => "true" }
+            - current_user.favourite_products.each do |product|
+              .column
+                = render partial: 'products/show', locals: { product: product }
