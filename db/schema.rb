@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117025048) do
+ActiveRecord::Schema.define(version: 20161118010131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,9 +66,21 @@ ActiveRecord::Schema.define(version: 20161117025048) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  create_table "verification_methods", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "token"
+    t.datetime "verified_at"
+    t.datetime "expires_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_verification_methods_on_user_id", using: :btree
+  end
+
   add_foreign_key "product_delivery_methods", "delivery_methods"
   add_foreign_key "product_delivery_methods", "products"
   add_foreign_key "products", "users"
   add_foreign_key "user_favourites", "products"
   add_foreign_key "user_favourites", "users"
+  add_foreign_key "verification_methods", "users"
 end
