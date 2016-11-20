@@ -54,9 +54,9 @@
       =link_to "Add to cart", "#", class: "button expanded"
 
       .text-right
-        %small added at #{l(@product.created_at)}
+        %small #{t('added_at')} #{l(@product.created_at, format: :date)}
     .callout
-      %h5 Seller information
+      %h5=t('seller_information')
       = @product.user.username
       %br
       %br

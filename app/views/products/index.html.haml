@@ -1,6 +1,6 @@
 #products
   %h2 Products
-  .row.large-up-4
+  .row.large-up-5.medium-up-3.small-up-2{ "data-equalizer" => "true", "data-equalize-by-row" => "true" }
     - @products.each do |product|
-      .column.product
+      .column
         = render partial: 'products/show', locals: { product: product }

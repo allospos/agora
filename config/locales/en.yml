@@ -14,5 +14,4 @@ en:
   time:
     formats:
       default: '%m/%d/%Y %H:%M'
-
-
+      date: '%m/%d/%Y'
