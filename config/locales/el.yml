@@ -9,6 +9,8 @@ el:
   condition: Κατάσταση
   new: Καινούριο
   location: Τοποθεσία
+  seller_information: Πληροφορίες πωλητή
+  added_at: Προστέθηκε στις
 
   delivery_methods: Τρόποι παράδοσης
   delivery: Παράδοση
@@ -31,6 +33,7 @@ el:
   time:
     formats:
       default: '%m/%d/%Y %H:%M'
+      date: '%m/%d/%Y'
 
   activerecord:
     errors:
