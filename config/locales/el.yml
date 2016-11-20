@@ -19,6 +19,7 @@ el:
   courier: Κούριερ
   collection: Παραλαβή
   verify_mobile: Επιβεβαίωση κινητού
+  enter_verication_code: Εισάγετε τον κωδικό που λάβατε στο κινητό σας 
 
   sms_verification: Ο κωδικός επιβεβαίωσης του λογαριασμού σου είναι %{code}. - piatsy.com
   send_sms: Στείλε μου μήνυμα

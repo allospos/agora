@@ -1,12 +1,13 @@
 class VerificationsController < ApplicationController
-  before_filter :require_login, only: [:new]
+  before_action :require_login, only: [:new]
 
   def new
+    redirect_to :back, notice: "You have to set your phone number first" if current_user.phone.nil?
     verification = current_user.verification_methods.build(name: "sms")
     verification.generate_sms_token
     if verification.save
       client = Twilio::REST::Client.new
-      client.messages.create(from: "", to: "", body: t("sms_verification", code: verification.token))
+      client.messages.create(from: "+447481340112", to: current_user.phone, body: t("sms_verification", code: verification.token))
     else
       redirect_to profile_path, notice: t('verification_exists')
     end
