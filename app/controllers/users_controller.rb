@@ -1,4 +1,14 @@
 class UsersController < Clearance::UsersController
+  before_action :require_login, only: [:profile]
+
+  def profile
+  end
+
+  def update_phone
+    phone = params[:user][:phone]
+    current_user.update_attribute(:phone, phone)
+    redirect_to :back, notice: "Your phone number has been set"
+  end
 
   private
 

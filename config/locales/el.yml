@@ -18,13 +18,22 @@ el:
   post: Ταχυδρομείο
   courier: Κούριερ
   collection: Παραλαβή
+  verify_mobile: Επιβεβαίωση κινητού
+  enter_verication_code: Εισάγετε τον κωδικό που λάβατε στο κινητό σας 
+
+  sms_verification: Ο κωδικός επιβεβαίωσης του λογαριασμού σου είναι %{code}. - piatsy.com
+  send_sms: Στείλε μου μήνυμα
 
   description: Περιγραφή 
   tagline: Η διαδικτυακή αγορά της Κύπρου
   marketing_text: για ασφαλείς και έμπιστες αγοραπωλησίες.
 
+  your_profile: Το προφίλ σας
+
   latest_listings: Καινούριες καταχωρήσεις
   your_favourites: Τα αγαπημένα σας
+  verification_exists: "'Εχετε επιβεβαιώσει ήδη το κινητό σας."
+
   date:
     formats:
       default: "%d/%m/%Y"
@@ -42,3 +51,4 @@ el:
           attributes:
             title:
               blank: Συμπληρώστε τον τίτλο της αγγελίας σας
+

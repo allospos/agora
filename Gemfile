@@ -18,6 +18,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'redcarpet'
 gem 'font-awesome-rails'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'byebug', platform: :mri

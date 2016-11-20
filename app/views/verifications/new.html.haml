@@ -1,0 +1,6 @@
+.row
+  .large-offset-4.large-4
+    =t("enter_verification_code")
+    = simple_form_for(VerificationMethod.new, url: :verify_token, method: :post) do |f|
+      = f.input :token, label: nil
+      = f.submit t("verify_mobile"), class: "button"

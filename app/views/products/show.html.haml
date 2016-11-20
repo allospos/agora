@@ -64,8 +64,14 @@
       %ul.no-bullet
         %li
           Email address
-          = fa_icon "remove", class: "invalid"
+          - if @product.user.verified_email?
+            = fa_icon "check", class: "success"
+          - else
+            = fa_icon "remove", class: "invalid"
         %li
           Phone number
-          = fa_icon "remove", class: "invalid"
+          - if @product.user.verified_phone?
+            = fa_icon "check", class: "success"
+          - else
+            = fa_icon "remove", class: "invalid"
 
