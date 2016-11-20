@@ -1,23 +1,26 @@
 %h1=t('your_profile')
 
-%h3=current_user.full_name
-%h4=current_user.email
-
-Verified Information
-%ul
-  %li
-    - if current_user.verified_email?
-      Email
-    - else
-      Your email has not been verified
-  %li
-    - if current_user.phone.nil?
-      Set your phone number to enable sms verification!
-      = simple_form_for(User.new, url: :update_phone) do |f|
-        = f.input :phone
-        = f.submit class: "button"
-      %small We do not share your phone number with anyone else, nor do we message you without your consent.
-    - elsif current_user.verified_phone?
-      Mobile
-    - else
-      = link_to t('verify_mobile'), new_verification_path(name: "sms"), class: "button"
+.row
+  .large-9.columns
+    %h5=current_user.full_name
+    %h6=current_user.email
+  .large-3.columns
+    .callout
+      Verified Information
+      %ul
+        %li
+          - if current_user.verified_email?
+            Email
+          - else
+            Your email has not been verified
+        %li
+          - if current_user.phone.nil?
+            Set your phone number to enable sms verification!
+            = simple_form_for(User.new, url: :update_phone) do |f|
+              = f.input :phone
+              = f.submit class: "button"
+            %small We do not share your phone number with anyone else, nor do we message you without your consent.
+          - elsif current_user.verified_phone?
+            Mobile
+          - else
+            = link_to t('verify_mobile'), new_verification_path(name: "sms"), class: "button"

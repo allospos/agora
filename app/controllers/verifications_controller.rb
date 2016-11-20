@@ -17,7 +17,7 @@ class VerificationsController < ApplicationController
     verification = current_user.verification_methods.where(name: "sms", token: params[:verification_method][:token])
     if verification.exists?
       verification.update(verified_at: DateTime.now)
-      redirect_to root_path, notice: "Your mobile number has been verified"
+      redirect_to profile_path, notice: "Your mobile number has been verified"
     else
       flash['notice']= 'The code you have entered is incorrect'
       render 'verifications/new'
