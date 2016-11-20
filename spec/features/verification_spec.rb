@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'User Verification' do
-  feature 'a user can verify their email address' do
-    let!(:user) { Fabricate(:user) }
+  let!(:user) { Fabricate(:user) }
 
+  feature 'a user must verify their email address on signup' do
     before do
       visit verify_path("email", user.verification_methods.first.token)
     end
@@ -15,6 +15,12 @@ RSpec.feature 'User Verification' do
     scenario 'only once' do
       visit verify_path("email", user.verification_methods.first.token) # 2nd visit
       expect(page).to have_content "Something went wrong"
+    end
+  end
+
+  feature 'a user can verify their phone number' do
+    scenario 'by requesting a verification message' do
+      visit profile_path(user)
     end
   end
 end

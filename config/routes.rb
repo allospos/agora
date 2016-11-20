@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     resources :favourites, only: [:create]
   end
 
+  get :profile, to: "users#profile"
+
   get "/verify/:name/:token", to: "verifications#update", as: :verify
+  post "/verify", to: "verifications#create", as: :verify_token
+
+  resources :verifications, only: [:new]
 end

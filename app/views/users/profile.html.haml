@@ -1,0 +1,7 @@
+%h1=t('your_profile')
+
+%h3=current_user.full_name
+%h4=current_user.email
+
+Verify your phone number:
+= link_to t('send_sms'), new_verification_path(name: "sms"), class: "button"
