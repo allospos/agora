@@ -3,6 +3,9 @@ en:
   list_product: List a product
   create: Create
   condition: Κατάσταση
+  unverified_email: Your email has not been verified.
+  verify_phone: Set your phone number to enable sms verification!
+  phone_memo: We do not share your phone number with anyone else, nor do we message you without your consent.
 
   sign_in: Sign in
 

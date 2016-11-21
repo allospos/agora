@@ -9,18 +9,26 @@
       Verified Information
       %ul
         %li
+          Email
           - if current_user.verified_email?
-            Email
+            = fa_icon "check", class: "success"
           - else
-            Your email has not been verified
+            = fa_icon "remove", class: "invalid"
+            %br
+            =t('unverified_email')
         %li
+          =t('phone')
           - if current_user.phone.nil?
-            Set your phone number to enable sms verification!
+            = fa_icon "remove", class: "invalid"
+            %br
+            =t('verify_phone')
             = simple_form_for(User.new, url: :update_phone) do |f|
               = f.input :phone
-              = f.submit class: "button"
-            %small We do not share your phone number with anyone else, nor do we message you without your consent.
+              = f.submit t('save'), class: "button"
+            %small= t('phone_memo')
           - elsif current_user.verified_phone?
-            Mobile
+            = fa_icon "check", class: "success"
           - else
-            = link_to t('verify_mobile'), new_verification_path(name: "sms"), class: "button"
+            = fa_icon "remove", class: "invalid"
+            %br
+            = link_to t('verify_mobile'), new_verification_path(name: "sms")

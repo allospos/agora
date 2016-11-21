@@ -18,6 +18,8 @@ el:
         title: "Τίτλος"
         description: "Περιγραφή"
         price: "Τιμή"
+      user:
+        phone: "Κινητό"
     #   defaults:
     #     password: 'Password'
     #   user:
