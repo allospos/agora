@@ -11,6 +11,31 @@
 
 
 #container
+  .row
+    .large-12.columns
+      .text-center
+        %h3=t('categories')
+        %br
+  .row.large-up-6.medium-up-3.small-up-2
+    .column
+      =image_tag "home_and_living.jpeg"
+      %p=t('home_and_living')
+    .column
+      =image_tag "clothing_and_acc.jpeg"
+      %p=t('clothing_and_accessories')
+    .column
+      =image_tag "entertain"
+      %p=t('entertainment')
+    .column
+      =image_tag "vintage"
+      %p=t('vintage')
+    .column
+      =image_tag "handmade"
+      %p=t('handmade')
+    .column
+      = image_tag "used"
+      %p=t('used')
+  %br
   - if @latest_products.any?
     .row
       .large-12.columns

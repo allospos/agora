@@ -17,6 +17,8 @@ el:
   phone: Κινητό
   enter_verification_code: Κωδικός επιβεβαίωσης
 
+  categories: Κατηγορίες
+
   delivery_methods: Τρόποι παράδοσης
   delivery: Παράδοση
   delivery_information: Πληροφορίες Παράδοσης
