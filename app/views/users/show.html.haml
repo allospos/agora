@@ -1,0 +1,21 @@
+%h1=@user.username
+
+.row
+  .large-9.columns
+    <placeholder>
+  .large-3.columns
+    .callout
+      Verified Information
+      %ul
+        %li
+          Email
+          - if @user.verified_email?
+            = fa_icon "check", class: "success"
+          - else
+            = fa_icon "remove", class: "invalid"
+        %li
+          =t('phone')
+          - if @user.verified_phone?
+            = fa_icon "check", class: "success"
+          - else
+            = fa_icon "remove", class: "invalid"

@@ -2,8 +2,11 @@ el:
   product_information: Καταχώρηση
   list_product: Καταχώρηση
   create: Καταχώρηση
+  save: Αποθήκευση
 
   sign_in: Σύνδεση
+  sign_out: Αποσύνδεση
+  profile: Προφίλ
 
   handmade: Χειροποίητο
   condition: Κατάσταση
@@ -11,6 +14,10 @@ el:
   location: Τοποθεσία
   seller_information: Πληροφορίες πωλητή
   added_at: Προστέθηκε στις
+  phone: Κινητό
+  enter_verification_code: Κωδικός επιβεβαίωσης
+
+  categories: Κατηγορίες
 
   delivery_methods: Τρόποι παράδοσης
   delivery: Παράδοση
@@ -21,8 +28,13 @@ el:
   verify_mobile: Επιβεβαίωση κινητού
   enter_verication_code: Εισάγετε τον κωδικό που λάβατε στο κινητό σας 
 
+  unverified_email: Το email σας δεν έχει επιβεβαιωθεί.
+  verify_phone: Αποθήκευσε το κινητό σου για επιβεβαίωση με sms!
+  phone_memo: Δεν μοιραζόμαστε το νούμερο σου με κανέναν άλλο, ούτε σου στέλνουμε μηνύματα χωρίς την εξουσιοδότηση σου.
+
   sms_verification: Ο κωδικός επιβεβαίωσης του λογαριασμού σου είναι %{code}. - piatsy.com
   send_sms: Στείλε μου μήνυμα
+  verify: Επιβεβαίωση
 
   description: Περιγραφή 
   tagline: Η διαδικτυακή αγορά της Κύπρου

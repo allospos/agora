@@ -16,6 +16,8 @@ en:
         title: "Title"
         description: "Description"
         price: "Price"
+      user:
+        phone: "Mobile number"
     #   defaults:
     #     password: 'Password'
     #   user:
