@@ -2,12 +2,49 @@ en:
   item_information: Information
   list_item: List item
   create: Create
-  condition: Κατάσταση
+  save: Save
+
+  sign_in: Sign in
+  sign_out: Sign Out
+  profile: Profile
+
+  handmade: Handmade
+  condition: Condition
+  new: New
+  location: Location
+  seller_information: Seller's Information
+  added_at: Added At
+  phone: Phone
+  enter_verification_code: Enter Verification Code
+
+  categories: Categories
+
+  delivery_methods: Delivery Methods
+  delivery: Delivery
+  delivery_information: Delivery Information
+  post: Post
+  courier: Courier
+  collection: Collection
+  verify_mobile: Verify Mobile
+  enter_verication_code: Enter the verification code which you received in your phone.
+
   unverified_email: Your email has not been verified.
   verify_phone: Set your phone number to enable sms verification!
   phone_memo: We do not share your phone number with anyone else, nor do we message you without your consent.
 
-  sign_in: Sign in
+  sms_verification: The verification code of your account is %{code}. - piatsy.com
+  send_sms: Send sms
+  verify: Verify
+
+  description: description 
+  tagline: The online marketplace in Cyprus
+  marketing_text: for secure and trusted dealings.
+
+  your_profile: Your Profile
+
+  latest_listings: New listings
+  your_favourites: Your favourites
+  verification_exists: You already verified your mobile phone
 
   date:
     formats:
@@ -18,3 +55,11 @@ en:
     formats:
       default: '%m/%d/%Y %H:%M'
       date: '%m/%d/%Y'
+
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            title:
+              blank: Enter the title of your listing
