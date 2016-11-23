@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   post "/verify", to: "verifications#create", as: :verify_token
 
   resources :verifications, only: [:new]
+
+  resource :cart
 end

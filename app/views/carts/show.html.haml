@@ -1,0 +1,17 @@
+%h1 Basket
+
+- if @cart.empty?
+  %p There are no items in your shopping basket
+- elsif @cart.items.size == 1
+  %p There is one item in your shopping basket
+
+- @cart.items.each do |item|
+  .row
+    .large-1.columns
+      =image_tag item.images.first.thumb
+    .large-2.columns
+      =item.title
+    .large-offset-6.large-1.columns
+      1
+    .large-1.columns
+      =item.price
