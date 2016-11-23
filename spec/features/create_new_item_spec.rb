@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Listing a new product" do
+RSpec.feature "Listing a new item" do
   let!(:delivery_method) { Fabricate(:delivery_method) }
 
   before do
@@ -8,8 +8,8 @@ RSpec.feature "Listing a new product" do
   end
 
   feature "guest visiting the website" do
-    scenario "cannot access the new product page from the landing page" do
-      visit new_product_path
+    scenario "cannot access the new item page from the landing page" do
+      visit new_item_path
 
       expect(page).to have_content("Please sign in to continue.")
     end
@@ -19,10 +19,10 @@ RSpec.feature "Listing a new product" do
 
     let!(:user) { Fabricate(:user) }
 
-    scenario "can list a product" do
+    scenario "can list a item" do
       sign_in(user)
 
-      visit new_product_path
+      visit new_item_path
 
       fill_in "Title", with: "Sofa"
       fill_in "Description", with: "three-seater yellow couch"

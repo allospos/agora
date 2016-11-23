@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post "/users", to: "users#create"
   resources :users, only: [:show]
 
-  resources :products, only: [:index, :create, :new, :show] do
+  resources :items, only: [:index, :create, :new, :show] do
     resources :favourites, only: [:create]
   end
 

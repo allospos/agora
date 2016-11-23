@@ -1,8 +1,8 @@
-class Product < ApplicationRecord
+class Item < ApplicationRecord
   belongs_to :user
   has_many :user_favourites
-  has_many :product_delivery_methods
-  has_many :delivery_methods, through: :product_delivery_methods, source: :delivery_method
+  has_many :item_delivery_methods
+  has_many :delivery_methods, through: :item_delivery_methods, source: :delivery_method
 
   validates :condition, :title, :description, :price, :user, presence:  true
   validate :delivery_method_count_validation

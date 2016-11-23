@@ -3,9 +3,9 @@ class User < ApplicationRecord
 
   after_create :verify_user_email
 
-  has_many :products
+  has_many :items
   has_many :user_favourites
-  has_many :favourite_products, through: :user_favourites, source: :product
+  has_many :favourite_items, through: :user_favourites, source: :item
   has_many :verification_methods
 
   validates :full_name, :username, presence: true

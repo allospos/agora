@@ -1,4 +1,4 @@
-Fabricator(:product) do
+Fabricator(:item) do
   user
   delivery_methods(count: 1)
   price            "350"

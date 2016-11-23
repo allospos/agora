@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.feature "Viewing a product", wip: true do
-  let(:product) { Fabricate(:product) }
+RSpec.feature "Viewing a item", wip: true do
+  let(:item) { Fabricate(:item) }
 
   before do
-    visit product_path(product)
+    visit item_path(item)
   end
 
   feature "guest visiting the website" do
-    scenario "can view a product listing" do
-      expect(page).to have_content(product.title)
+    scenario "can view a item listing" do
+      expect(page).to have_content(item.title)
     end
 
     scenario "is redicted to the sign in page if they attempt to favorite an item" do
