@@ -13,7 +13,6 @@ RSpec.feature "Shopping basket" do
       items = 3.times.map { Fabricate(:item) }
       visit item_path(items[0])
       click_on("Add to cart")
-      save_and_open_page
 
       expect(page).to have_content("#{items[0].title} has been added to your basket")
       expect(page).to have_content("There is one item in your shopping basket")
