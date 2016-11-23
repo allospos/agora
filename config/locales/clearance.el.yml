@@ -3,29 +3,31 @@ el:
   clearance:
     models:
       clearance_mailer:
-        change_password: Άλλαξε τον κωδικό σου
+        change_password: Αλλάξτε τον κωδικό πρόσβασης σας
   clearance_mailer:
     change_password:
-      closing: Αν δεν ζητήσατε να αλλάξετε τον κωδικό σας, αγνοείστε αυτό το email. Ο κωδικός σασ δεν έχει αλλάξει.
+      closing: Αν δεν ζητήσατε να αλλάξετε τον κωδικό σας, αγνοείστε αυτό το email. Ο κωδικός σας
+        δεν έχει αλλάξει.
       link_text: Άλλαξε τον κωδικό μου
-      opening: "Κάποιος, ελπίζουμε εσύ, έχει ζητήσει την αποστολή του συνδέσμου για να αλλάξεις τον κωδικό σου."
+      opening: "Κάποιος, ελπίζουμε εσύ, έχει ζητήσει την αποστολή του συνδέσμου για να αλλάξεις
+        τον κωδικό σου:"
   flashes:
-    failure_after_create: Bad email or password.
-    failure_after_update: Password can't be blank.
-    failure_when_forbidden: Please double check the URL or try submitting
-      the form again.
-    failure_when_not_signed_in: Please sign in to continue.
+    failure_after_create: Λάθος ηλεκτρονικό ταχυδρομείο ή κωδικο.
+    failure_after_update: Ο κωδικός πρόσβασης δεν μπορεί να είναι κενός.
+    failure_when_forbidden: Παρακαλούμε ελέγξτε τη διεύθυνση URL ή να δοκιμάσετε να υποβάλετε
+      τη φόρμα και πάλι.
+    failure_when_not_signed_in: Παρακαλούμε συνδεθείτε για να συνεχίσετε.
   helpers:
     label:
       password:
-        email: Email address
+        email: Διεύθυνση ηλεκτρονικού ταχυδρομείου
       password_reset:
-        password: Choose password
+        password: Επιλέξτε κωδικό πρόσβασης
     submit:
       password:
-        submit: Reset password
+        submit: Επαναφέρετε τον κωδικό πρόσβασης
       password_reset:
-        submit: Save this password
+        submit: Αποθηκεύστε αυτόν τον κωδικό πρόσβασης
       session:
         submit: Σύνδεση
       user:
@@ -36,18 +38,18 @@ el:
       sign_out: Αποσυνδεθείτε
   passwords:
     create:
-      description: You will receive an email within the next few minutes. It
-        contains instructions for changing your password.
+      description: Θα λάβετε ένα μήνυμα στο ηλεκτρονικό σας ταχυδρομείο μέσα στα επόμενα λίγα λεπτά. Το
+        οποίο θα περιέχει οδηγίες για την αλλαγή του κωδικού πρόσβασης σας.
     edit:
-      description: Your password has been reset. Choose a new password below.
-      title: Change your password
+      description: Ο κωδικός πρόσβασής σας έχει επαναφερθεί. Επιλέξτε έναν νέο κωδικό.
+      title: Αλλάξτε τον κωδικό σας
     new:
-      description: To be emailed a link to reset your password, please enter
-        your email address.
-      title: Reset your password
+      description: Να αποσταλεί ένα σύνδεσμο για να επαναφέρετε τον κωδικό πρόσβασής σας, παρακαλούμε εισάγετε
+        το εμαιλ σου.
+      title: Επαναφέρετε τον κωδικό πρόσβασης σας
   sessions:
     form:
-      forgot_password: Ξεχάσατε τον κωδικό σας;
+      forgot_password: Ξεχάσατε τον κωδικό πρόσβασης σας;
       sign_up: Εγγραφή
     new:
       title: Σύνδεση
