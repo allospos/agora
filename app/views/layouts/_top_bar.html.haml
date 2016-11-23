@@ -5,7 +5,7 @@
         =link_to "Piatsy", root_path
   .top-bar-right
     %ul.menu.dropdown{ "data-dropdown-menu" => "" }
-      %li= link_to t('list_product'), new_product_path, class: "button"
+      %li= link_to t('list_item'), new_item_path, class: "button"
       - if signed_in?
         %li
           =link_to current_user.username,"#"

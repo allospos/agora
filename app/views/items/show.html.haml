@@ -1,16 +1,16 @@
 %h5
-  =link_to "Products", products_path
+  =link_to "Items", items_path
 %h4
-  =@product.title
+  =@item.title
 
 %br
 .row
   .large-8.columns
     .text-center
-      - if @product.images.any?
-        =image_tag @product.images.first.url, class: "thumbnail"
+      - if @item.images.any?
+        =image_tag @item.images.first.url, class: "thumbnail"
         %br
-        -@product.images.each do |image|
+        -@item.images.each do |image|
           =image_tag image.thumb.url
       - else
         =image_tag "http://dummyimage.com/500x400&text=No image", class: "thumbnail"
@@ -22,55 +22,55 @@
 
       .tabs-content{"data-tabs-content" => "information" }
         .tabs-panel.is-active#description
-          %p= markdown_render(@product.description)
+          %p= markdown_render(@item.description)
   .large-4.columns
     .callout
       %p
-        #{@product.description[0...100]}
-        - if @product.description.length > 100
+        #{@item.description[0...100]}
+        - if @item.description.length > 100
           = link_to "...", "#description"
 
       %br
       %p.stat
-        &euro;#{@product.price}
+        &euro;#{@item.price}
 
       %h5 Overview
       %ul
         %li #{t('location')}: Nicosia
-        %li #{t("condition")}: #{t(@product.condition.downcase)}
-        - if @product.product_type?
-          %li=t(@product.product_type.downcase)
+        %li #{t("condition")}: #{t(@item.condition.downcase)}
+        - if @item.item_type?
+          %li=t(@item.item_type.downcase)
         %li
           =t('delivery_methods')
           %ul
-            - @product.delivery_methods.each do |delivery_method|
+            - @item.delivery_methods.each do |delivery_method|
               %Li=t(delivery_method.name.downcase)
-        %li Favorited by: #{@product.user_favourites.count}
+        %li Favorited by: #{@item.user_favourites.count}
         %li Feedback:
-      - if current_user and current_user.favourite_products.include?(@product)
-        =link_to "Favourite", product_favourites_path(@product), method: :post, class: "button alert expanded disabled"
+      - if current_user and current_user.favourite_items.include?(@item)
+        =link_to "Favourite", item_favourites_path(@item), method: :post, class: "button alert expanded disabled"
       - else
-        =link_to "Favourite", product_favourites_path(@product), method: :post, class: "button alert expanded"
+        =link_to "Favourite", item_favourites_path(@item), method: :post, class: "button alert expanded"
       =link_to "Add to cart", "#", class: "button expanded"
 
       .text-right
-        %small #{t('added_at')} #{l(@product.created_at, format: :date)}
+        %small #{t('added_at')} #{l(@item.created_at, format: :date)}
     .callout
       %h5=t('seller_information')
-      = link_to  @product.user.username, @product.user
+      = link_to  @item.user.username, @item.user
       %br
       %br
       %b Verified information
       %ul.no-bullet
         %li
           Email address
-          - if @product.user.verified_email?
+          - if @item.user.verified_email?
             = fa_icon "check", class: "success"
           - else
             = fa_icon "remove", class: "invalid"
         %li
           Phone number
-          - if @product.user.verified_phone?
+          - if @item.user.verified_phone?
             = fa_icon "check", class: "success"
           - else
             = fa_icon "remove", class: "invalid"

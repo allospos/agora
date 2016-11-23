@@ -1,0 +1,10 @@
+.item{ "data-equalizer-watch" => "" }
+  =link_to item do
+    - if item.images.any?
+      = image_tag item.images.first.small.url
+    - else
+      =image_tag "http://dummyimage.com/340x270&text=No image"
+  .info
+    =link_to item.shortened_title, item
+    .text-right
+      &euro;#{item.price}

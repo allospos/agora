@@ -1,9 +1,9 @@
 .row
   .large-offset-2.large-8.columns
     .callout.large
-      %h1= t('product_information')
+      %h1= t('item_information')
 
-      = simple_form_for @product do |f|
+      = simple_form_for @item do |f|
         .row
           .large-3.columns
             = f.input :condition, collection: [ "New", "Used" ], selected: "New"
@@ -15,7 +15,7 @@
             = f.input :description
         .row
           .large-3.columns
-            = f.input :product_type, collection: [ "Handmade", "Vintage" ]
+            = f.input :item_type, collection: [ "Handmade", "Vintage" ]
         .row
           .large-3.columns
             = f.input :price

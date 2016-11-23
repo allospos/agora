@@ -1,6 +1,6 @@
 en:
-  product_information: Product Information
-  list_product: List a product
+  item_information: Information
+  list_item: List item
   create: Create
   condition: Κατάσταση
   unverified_email: Your email has not been verified.

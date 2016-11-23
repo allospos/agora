@@ -1,6 +1,6 @@
 el:
-  product_information: Καταχώρηση
-  list_product: Καταχώρηση
+  item_information: Καταχώρηση
+  list_item: Καταχώρηση
   create: Καταχώρηση
   save: Αποθήκευση
 
@@ -59,7 +59,7 @@ el:
   activerecord:
     errors:
       models:
-        product:
+        item:
           attributes:
             title:
               blank: Συμπληρώστε τον τίτλο της αγγελίας σας

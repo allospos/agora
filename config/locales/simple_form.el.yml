@@ -12,9 +12,9 @@ el:
       default_message: "Please review the problems below:"
     # Examples
     labels:
-      product:
+      item:
         condition: "Κατάσταση"
-        product_type: Είδος
+        item_type: Είδος
         title: "Τίτλος"
         description: "Περιγραφή"
         price: "Τιμή"

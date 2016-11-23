@@ -36,16 +36,16 @@
       = image_tag "used"
       %p=t('used')
   %br
-  - if @latest_products.any?
+  - if @latest_items.any?
     .row
       .large-12.columns
         .text-center
           %h3=t('latest_listings')
           %br
     .row.large-up-5.medium-up-3.small-up-2{ "data-equalizer" => "true", "data-equalize-by-row" => "true" }
-      - @latest_products.each do |product|
+      - @latest_items.each do |item|
         .column
-          = render partial: 'products/show', locals: { product: product }
+          = render partial: 'items/show', locals: { item: item }
   %br
   -if current_user
     .row
@@ -53,8 +53,8 @@
         .text-center
           %h3=t('your_favourites')
           %br
-        - if current_user.favourite_products.any?
+        - if current_user.favourite_items.any?
           .row.large-up-5.medium-up-3.small-up-2{ "data-equalizer" => "true", "data-equalize-by-row" => "true" }
-            - current_user.favourite_products.each do |product|
+            - current_user.favourite_items.each do |item|
               .column
-                = render partial: 'products/show', locals: { product: product }
+                = render partial: 'items/show', locals: { item: item }

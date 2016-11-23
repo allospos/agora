@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120200357) do
+ActiveRecord::Schema.define(version: 20161122235834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,34 +21,34 @@ ActiveRecord::Schema.define(version: 20161120200357) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_delivery_methods", force: :cascade do |t|
-    t.integer  "product_id"
+  create_table "item_delivery_methods", force: :cascade do |t|
+    t.integer  "item_id"
     t.integer  "delivery_method_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["delivery_method_id"], name: "index_product_delivery_methods_on_delivery_method_id", using: :btree
-    t.index ["product_id"], name: "index_product_delivery_methods_on_product_id", using: :btree
+    t.index ["delivery_method_id"], name: "index_item_delivery_methods_on_delivery_method_id", using: :btree
+    t.index ["item_id"], name: "index_item_delivery_methods_on_item_id", using: :btree
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
     t.string   "price"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "condition"
-    t.string   "product_type"
+    t.string   "item_type"
     t.json     "images"
-    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "user_favourites", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "product_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_user_favourites_on_product_id", using: :btree
+    t.index ["item_id"], name: "index_user_favourites_on_item_id", using: :btree
     t.index ["user_id"], name: "index_user_favourites_on_user_id", using: :btree
   end
 
@@ -78,10 +78,10 @@ ActiveRecord::Schema.define(version: 20161120200357) do
     t.index ["user_id"], name: "index_verification_methods_on_user_id", using: :btree
   end
 
-  add_foreign_key "product_delivery_methods", "delivery_methods"
-  add_foreign_key "product_delivery_methods", "products"
-  add_foreign_key "products", "users"
-  add_foreign_key "user_favourites", "products"
+  add_foreign_key "item_delivery_methods", "delivery_methods"
+  add_foreign_key "item_delivery_methods", "items"
+  add_foreign_key "items", "users"
+  add_foreign_key "user_favourites", "items"
   add_foreign_key "user_favourites", "users"
   add_foreign_key "verification_methods", "users"
 end
