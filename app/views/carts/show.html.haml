@@ -5,7 +5,7 @@
 - elsif @cart.items.size == 1
   %p There is one item in your shopping basket
 
-- @cart.items.each do |item|
+- @cart.items.map(&:item).each do |item|
   .row
     .large-1.columns
       - if item.images.any?

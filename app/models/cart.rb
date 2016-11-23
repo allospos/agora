@@ -1,15 +1,20 @@
-class Cart
-  attr_reader :items
+class Cart < ActiveRecord::Base
+  belongs_to :user
+  has_many :cart_items
 
-  def initialize
-    @items = []
-  end
-
-  def add(item)
-    @items << item
+  def add(item, quantity=1)
+    cart_items << CartItem.create(item: item,
+                                  quantity: quantity,
+                                  price: item.price,
+                                  delivery_method: item.delivery_methods.first)
   end
 
   def empty?
-    @items.empty?
+    cart_items.empty?
   end
+
+  def items
+    cart_items
+  end
+
 end
