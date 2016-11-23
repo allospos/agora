@@ -8,7 +8,10 @@
 - @cart.items.each do |item|
   .row
     .large-1.columns
-      =image_tag item.images.first.thumb
+      - if item.images.any?
+        =image_tag item.images.first.thumb, class: "thumbnail"
+      - else
+        =image_tag "http://dummyimage.com/50x40&text=No image", class: "thumbnail"
     .large-2.columns
       =item.title
     .large-offset-6.large-1.columns
