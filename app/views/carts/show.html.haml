@@ -2,19 +2,37 @@
 
 - if @cart.empty?
   %p There are no items in your shopping basket
-- elsif @cart.items.size == 1
-  %p There is one item in your shopping basket
+- else
+  %p There are #{@cart.item_count} items in your shopping basket
 
-- @cart.items.map(&:item).each do |item|
-  .row
-    .large-1.columns
-      - if item.images.any?
-        =image_tag item.images.first.thumb, class: "thumbnail"
-      - else
-        =image_tag "http://dummyimage.com/50x40&text=No image", class: "thumbnail"
-    .large-5.columns
-      =item.title
-    .large-offset-4.large-1.columns
-      1
-    .large-1.columns
-      =item.price
+  .callout.large
+    - @cart.cart_items.each do |item|
+      .row
+        .large-1.columns
+          - if item.item.images.any?
+            =image_tag item.item.images.first.thumb, class: "thumbnail"
+          - else
+            =image_tag "http://dummyimage.com/50x40&text=No image", class: "thumbnail"
+        .large-5.columns
+          =link_to item.item do
+            =item.item.title
+        .large-offset-3.large-2.columns
+          x#{item.quantity}
+          =link_to cart_path(item_id: item.item), class: 'remove alert', method: :put do
+            .fa.fa-trash
+        .large-1.columns
+          =item.price
+    .row
+      .large-offset-10.large-1.columns
+        =t('shipping')
+      .large-1.columns
+        = @cart.delivery_charges
+
+    %hr
+    .row
+      .large-1.columns.text-left
+        = link_to "Clear", cart_path, method: :delete, class: "button"
+      .large-offset-9.large-1.columns
+        =t('total')
+      .large-1.columns
+        =@cart.total
