@@ -3,28 +3,15 @@ class Cart < ActiveRecord::Base
   has_many :cart_items, dependent: :destroy
 
   def add(item, quantity=1)
-    cart_item = cart_items.where(item: item, delivery_method: item.delivery_methods.first)
-    if cart_item.exists?
-      cart_item = cart_item.first
-      cart_item.update_attributes(quantity: cart_item.quantity+quantity)
-    else
-      cart_items << CartItem.create(item: item,
-                                    quantity: quantity,
-                                    price: item.price,
-                                    delivery_method: item.delivery_methods.first)
-    end
+    cart_item = cart_item(item.id)
+    cart_item ? cart_item.increase_quantity(quantity) :
+                create_cart_item(item, quantity)
   end
 
   def remove(item_id, quantity=1)
-    cart_item = cart_items.where(item_id: item_id).first
-    if cart_item.quantity > quantity
-      cart_item.update_attributes(quantity: cart_item.quantity-quantity)
-      I18n.t('cart.remove_item')
-    elsif cart_item.delete
-      I18n.t('cart.remove_item')
-    else
-      I18n.t('cart.could_no_remove_item')
-    end
+    cart_item = cart_item(item_id)
+    cart_item.quantity > quantity ? cart_item.decrease_quantity(quantity) :
+                                    cart_item.delete
     cart_item
   end
 
@@ -41,6 +28,7 @@ class Cart < ActiveRecord::Base
   end
 
   def delivery_charges
+    #items.pluck(:delivery_charge).inject(0){|total, charge| total += charge.to_d }
   end
 
   private
@@ -48,4 +36,14 @@ class Cart < ActiveRecord::Base
     cart_items
   end
 
+  def create_cart_item(item, quantity)
+    cart_items << CartItem.create(item: item,
+                                  quantity: quantity,
+                                  price: item.price,
+                                  delivery_method: item.delivery_methods.first)
+  end
+
+  def cart_item(item_id)
+    cart_items.where(item_id: item_id).try(:first) rescue nil
+  end
 end
