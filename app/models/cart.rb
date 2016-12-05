@@ -19,7 +19,6 @@ class Cart < ActiveRecord::Base
     cart_item = cart_items.where(item_id: item_id).first
     if cart_item.quantity > quantity
       cart_item.update_attributes(quantity: cart_item.quantity-quantity)
-      cart_item.save
       I18n.t('cart.remove_item')
     elsif cart_item.delete
       I18n.t('cart.remove_item')
