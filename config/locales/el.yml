@@ -44,7 +44,7 @@ el:
 
   latest_listings: Καινούριες καταχωρήσεις
   your_favourites: Τα αγαπημένα σας
-  verification_exists: "'Εχετε επιβεβαιώσει ήδη το κινητό σας."
+  verification_exists: Έχετε επιβεβαιώσει ήδη το κινητό σας.
 
   date:
     formats:
@@ -63,4 +63,3 @@ el:
           attributes:
             title:
               blank: Συμπληρώστε τον τίτλο της αγγελίας σας
-

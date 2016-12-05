@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Viewing a item", wip: true do
+RSpec.feature "Viewing a item" do
   let(:item) { Fabricate(:item) }
 
   before do
