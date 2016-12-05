@@ -15,5 +15,4 @@ class CartItem < ApplicationRecord
   def update_quantity(quantity)
     self.update_attributes(quantity: quantity)
   end
-
 end

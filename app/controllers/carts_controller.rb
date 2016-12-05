@@ -1,26 +1,19 @@
 class CartsController < ApplicationController
 
   def show
-    @cart = current_user.cart if current_user
-    if @cart.nil?
-      @cart = cookies[:cart_id].present? ? Cart.find(cookies[:cart_id]) : Cart.new
-    end
+    @cart = find_cart || Cart.new
   end
 
   def create
-    @cart = current_user.cart if current_user
-    if @cart.nil?
-      @cart = cookies[:cart_id].present? ? Cart.find(cookies[:cart_id]) : Cart.create
-      cookies[:cart_id] = @cart.id
-    end
+    @cart = find_cart || Cart.create
+    cookies[:cart_id] = @cart.id unless current_user
     @cart.add(item)
     redirect_to cart_path, notice: "#{item.title} has been added to your basket"
   end
 
   def destroy
-    @cart = current_user.cart if current_user
-    if @cart.nil? and cookies[:cart_id].present?
-      @cart = Cart.find(cookies[:cart_id])
+    @cart = find_cart
+    if @cart
       @cart.destroy!
       cookies[:cart_id]=""
     end
@@ -28,10 +21,7 @@ class CartsController < ApplicationController
   end
 
   def update
-    @cart = current_user.cart if current_user
-    if @cart.nil? and cookies[:cart_id].present?
-      @cart = Cart.find(cookies[:cart_id])
-    end
+    @cart = find_cart
     item = @cart.remove(params[:item_id])
     redirect_to cart_path, notice: "#{item.item.title} has been removed from your cart"
   end
@@ -39,5 +29,11 @@ class CartsController < ApplicationController
   private
   def item
     @item ||= Item.find(params[:item_id])
+  end
+
+
+  def find_cart
+    return @cart = current_user.cart if current_user
+    @cart = cookies[:cart_id].present? ? Cart.find(cookies[:cart_id]) : nil
   end
 end
