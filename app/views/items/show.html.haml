@@ -51,7 +51,7 @@
         =link_to "Favourite", item_favourites_path(@item), method: :post, class: "button alert expanded disabled"
       - else
         =link_to "Favourite", item_favourites_path(@item), method: :post, class: "button alert expanded"
-      =link_to "Add to cart", "#", class: "button expanded"
+      =link_to "Add to cart", cart_path(item_id: @item), method: :post, class: "button expanded"
 
       .text-right
         %small #{t('added_at')} #{l(@item.created_at, format: :date)}

@@ -8,9 +8,14 @@ class User < ApplicationRecord
   has_many :favourite_items, through: :user_favourites, source: :item
   has_many :verification_methods
 
+  has_many :carts
+
   validates :full_name, :username, presence: true
   validates :username, uniqueness: true
 
+  def cart
+    carts.last || carts.create
+  end
   def verify_user_email
     verification_method = self.verification_methods.create(name: "email")
     verification_method.generate_email_token

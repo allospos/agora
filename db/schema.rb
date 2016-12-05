@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122235834) do
+ActiveRecord::Schema.define(version: 20161123134326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.string   "price"
+    t.integer  "delivery_method_id"
+    t.string   "delivery_charge"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
+    t.index ["delivery_method_id"], name: "index_cart_items_on_delivery_method_id", using: :btree
+    t.index ["item_id"], name: "index_cart_items_on_item_id", using: :btree
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
+  end
 
   create_table "delivery_methods", force: :cascade do |t|
     t.string   "name"
@@ -78,6 +100,10 @@ ActiveRecord::Schema.define(version: 20161122235834) do
     t.index ["user_id"], name: "index_verification_methods_on_user_id", using: :btree
   end
 
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "cart_items", "delivery_methods"
+  add_foreign_key "cart_items", "items"
+  add_foreign_key "carts", "users"
   add_foreign_key "item_delivery_methods", "delivery_methods"
   add_foreign_key "item_delivery_methods", "items"
   add_foreign_key "items", "users"
