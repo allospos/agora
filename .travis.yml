@@ -6,7 +6,8 @@ script:
   - bundle exec rspec
 addons:
   postgresql: "9.4"
+  code_climate:
+    repo_token: 1ec42b2f1b3a32fa9ef4e2aa7939f3f82cf6028a1a4e5cc5679443f9c37e4d47
 notifications:
   email:
     - webmaster@allospos.io
-
